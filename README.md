@@ -1,2 +1,2 @@
-# psychic-parakeet
+# crypto-bot
 discord crypto bot
