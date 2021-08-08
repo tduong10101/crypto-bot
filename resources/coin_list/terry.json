@@ -1,0 +1,35 @@
+[
+    {
+        "id": 2099,
+        "name": "ICON",
+        "symbol": "ICX",
+        "slug": "icon",
+        "rank": 99,
+        "is_active": 1,
+        "first_historical_data": "2017-10-27T00:19:31.000Z",
+        "last_historical_data": "2021-08-08T10:09:02.000Z",
+        "platform": null
+    },
+    {
+        "id": 1,
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "slug": "bitcoin",
+        "rank": 1,
+        "is_active": 1,
+        "first_historical_data": "2013-04-28T18:47:21.000Z",
+        "last_historical_data": "2021-08-08T10:09:03.000Z",
+        "platform": null
+    },
+    {
+        "id": 1321,
+        "name": "Ethereum Classic",
+        "symbol": "ETC",
+        "slug": "ethereum-classic",
+        "rank": 18,
+        "is_active": 1,
+        "first_historical_data": "2016-07-24T13:44:30.000Z",
+        "last_historical_data": "2021-08-08T10:09:04.000Z",
+        "platform": null
+    }
+]

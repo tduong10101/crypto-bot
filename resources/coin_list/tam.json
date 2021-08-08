@@ -1,0 +1,63 @@
+[
+    {
+        "id": 2099,
+        "name": "ICON",
+        "symbol": "ICX",
+        "slug": "icon",
+        "rank": 99,
+        "is_active": 1,
+        "first_historical_data": "2017-10-27T00:19:31.000Z",
+        "last_historical_data": "2021-08-08T10:09:02.000Z",
+        "platform": null
+    },
+    {
+        "id": 1,
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "slug": "bitcoin",
+        "rank": 1,
+        "is_active": 1,
+        "first_historical_data": "2013-04-28T18:47:21.000Z",
+        "last_historical_data": "2021-08-08T10:09:03.000Z",
+        "platform": null
+    },
+    {
+        "id": 74,
+        "name": "Dogecoin",
+        "symbol": "DOGE",
+        "slug": "dogecoin",
+        "rank": 7,
+        "is_active": 1,
+        "first_historical_data": "2013-12-15T14:42:34.000Z",
+        "last_historical_data": "2021-08-08T10:09:03.000Z",
+        "platform": null
+    },
+    {
+        "id": 1321,
+        "name": "Ethereum Classic",
+        "symbol": "ETC",
+        "slug": "ethereum-classic",
+        "rank": 18,
+        "is_active": 1,
+        "first_historical_data": "2016-07-24T13:44:30.000Z",
+        "last_historical_data": "2021-08-08T10:09:04.000Z",
+        "platform": null
+    },
+    {
+        "id": 825,
+        "name": "Tether",
+        "symbol": "USDT",
+        "slug": "tether",
+        "rank": 3,
+        "is_active": 1,
+        "first_historical_data": "2015-02-25T13:34:26.000Z",
+        "last_historical_data": "2021-08-08T10:09:08.000Z",
+        "platform": {
+            "id": 1027,
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "slug": "ethereum",
+            "token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        }
+    }
+]
