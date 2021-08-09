@@ -9,11 +9,11 @@ from os.path import isfile, join
 
 config = dotenv_values(".env")
 COINTOKEN=config['COIN_TOKEN']
-def get_coin_list():
+def sync_coin_list():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
     parameters = {
     'start':'1',
-    'limit':'1000',
+    'limit':'5000',
     }
     headers = {
     'Accepts': 'application/json',
@@ -24,6 +24,10 @@ def get_coin_list():
     try:
         response = session.get(url, params=parameters)
         data = json.loads(response.text)
+        
+        with open('./resources/coin_list.json','w+') as f:
+            f.write(json.dumps(data,indent=4))
+        
         return data
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)
@@ -148,11 +152,10 @@ def get_coin_price(name,convert="AUD"):
         print(e)
 
 if __name__ == '__main__':
-    # data = get_coin_listing('tam')
-    # with open('./resources/coin_listing.json','w+') as f:
-    #     f.write(json.dumps(data,indent=4))
+    
     #get_coin_price('tam')
     # remove_list('terry')
     # Message=add_coin("tam", "adsfadsfds, fdafdsa, icx")
-    # print(Message)
+    # # print(Message)
+    # sync_coin_list()
     pass
