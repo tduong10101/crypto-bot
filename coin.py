@@ -32,15 +32,28 @@ def add_coin(name, coins):
     coins = re.split(',\s*', coins)
     path_to_file=f'./resources/coin_list/{name}.json'
     coins_data=load_coin(path_to_file)
-    
+    not_found = []
+    found = []
     for coin in coins:
-        coins_data.append(find_coin(coin))
+        f_coin = find_coin(coin)
+        if f_coin==None:
+            not_found.append(coin)
+        else:
+            found.append(coin)
+            coins_data.append(f_coin)
+        
         
     coins_data = [i for n, i in enumerate(coins_data) if i not in coins_data[n + 1:]]
     
     with open(path_to_file,'w+') as f:
         f.write(json.dumps(coins_data,indent=4))
-
+    Message = ""
+    if len(found) > 0:
+        Message = f"Added {', '.join(found)}"
+    if len(not_found) > 0:
+        Message += f"\nUnable to find {', '.join(not_found)}"
+    
+    return Message
 def remove_coin(name, coins):
     coins = re.split(',\s*', coins)
     path_to_file=f'./resources/coin_list/{name}.json'
@@ -63,8 +76,11 @@ def find_coin(coin_symbol):
     with open('./resources/coin_list.json','r') as f:
         data=json.loads(f.read())
         data=data['data']
-    coin_data = [icoin for icoin in data if icoin['symbol'].lower() == coin_symbol.lower()][0]
-    return coin_data
+    coin_data = [icoin for icoin in data if icoin['symbol'].lower() == coin_symbol.lower()]
+    if coin_data==[]:
+        return None
+    else:
+        return coin_data[0]
 
 def load_coin(path_to_file):
     if exists(path_to_file):
@@ -137,4 +153,6 @@ if __name__ == '__main__':
     #     f.write(json.dumps(data,indent=4))
     #get_coin_price('tam')
     # remove_list('terry')
+    # Message=add_coin("tam", "adsfadsfds, fdafdsa, icx")
+    # print(Message)
     pass

@@ -31,8 +31,9 @@ async def test(ctx):
 #!add-coin
 @bot.command(name='add-coin')
 async def test(ctx, name, coins):
-    coin.add_coin(name,coins)
-    await ctx.send(f"added {coins} to {name}'s list")
+    Message = coin.add_coin(name,coins)
+    print(Message)
+    await ctx.send(Message)
 
 #!remove-coin
 @bot.command(name='remove-coin')
