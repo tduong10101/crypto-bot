@@ -34,6 +34,12 @@ async def test(ctx, name, coins):
     coin.add_coin(name,coins)
     await ctx.send(f"added {coins} to {name}'s list")
 
+#!remove-coin
+@bot.command(name='remove-coin')
+async def test(ctx, name, coins):
+    coin.remove_coin(name,coins)
+    await ctx.send(f"removed {coins} from {name}'s list")
+
 #!get-list
 @bot.command(name='get-list')
 async def test(ctx, name=None):
@@ -43,6 +49,12 @@ async def test(ctx, name=None):
         response=coin.get_coin_list(name)
     
     await ctx.send(response)
+
+#!remove-list
+@bot.command(name='remove-list')
+async def test(ctx, name):
+    coin.remove_list(name)
+    await ctx.send(f"remove {name}'s list")
 
 #!lp
 @bot.command(name='lp')

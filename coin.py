@@ -4,7 +4,7 @@ import json
 from dotenv import dotenv_values
 import re
 from os.path import exists
-from os import listdir
+from os import listdir, remove
 from os.path import isfile, join
 
 config = dotenv_values(".env")
@@ -41,6 +41,24 @@ def add_coin(name, coins):
     with open(path_to_file,'w+') as f:
         f.write(json.dumps(coins_data,indent=4))
 
+def remove_coin(name, coins):
+    coins = re.split(',\s*', coins)
+    path_to_file=f'./resources/coin_list/{name}.json'
+    coins_data=load_coin(path_to_file)
+    
+    new_coins_data = []
+    
+    for c in coins_data:
+        if c['symbol'].lower() not in coins:
+            new_coins_data.append(c)
+    
+    with open(path_to_file,'w+') as f:
+        f.write(json.dumps(new_coins_data,indent=4))
+
+def remove_list(name):
+    path_to_file=f'./resources/coin_list/{name}.json'
+    remove(path_to_file)
+
 def find_coin(coin_symbol):
     with open('./resources/coin_list.json','r') as f:
         data=json.loads(f.read())
@@ -61,7 +79,8 @@ def get_coin_list(name):
     if data==[]:
         return "list not exist"
     else:
-        return data
+        message = ["Name: "+d['name']+"\tSymbol:"+d['symbol'] for d in data]
+        return "\n".join(message)
 
 def get_coin_lists():
     path_to_file=f'./resources/coin_list/'
@@ -117,4 +136,5 @@ if __name__ == '__main__':
     # with open('./resources/coin_listing.json','w+') as f:
     #     f.write(json.dumps(data,indent=4))
     #get_coin_price('tam')
+    # remove_list('terry')
     pass
